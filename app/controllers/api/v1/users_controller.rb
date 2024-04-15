@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < Api::V1::BaseController
+    def index
+      @user = User.all
+    end
+  
     def create
       @user = User.new(user_params)
   
