@@ -1,22 +1,23 @@
 # frozen_string_literal: true
 
 class Api::V1::UsersController < Api::V1::BaseController
-    def index
-      @user = User.all
+  include Renderer
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      options = { root: :json, status: :created}
+      # puts(render_object(@user, **options))
+       return render_object(@user, root: :json, status: :created, meta: assign_metadata(@user))
     end
-  
-    def create
-      @user = User.new(user_params)
-  
-      if @user.save
-        return render json: @user, status: :created
-      end
-  
-      render json: @user.errors, status: :unprocessable_entity
-    end
-  
-    private
-    def user_params
-      params.require(:user).permit(:email, :password)
-    end
+
+    # render json: @user.errors, status: :unprocessable_entity
+    render_errors(@user.errors)
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:email, :password)
+  end
 end
