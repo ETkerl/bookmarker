@@ -23,9 +23,6 @@ module Renderer
     end
 
     def assign_metadata(resource)
-        count = resource.respond_to?(:count) ? resource.count : 1
-        resource_name = (resource.try(:first)&.class || resource.class).to_s
-    
-        { resource: resource_name, count: count }
+        { resource: resource.class.name, count: resource.class.count }
     end
 end
