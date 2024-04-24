@@ -6,9 +6,7 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user = User.new(user_params)
 
     if @user.save
-      options = { root: :json, status: :created}
-      # puts(render_object(@user, **options))
-       return render_object(@user, root: :json, status: :created, meta: assign_metadata(@user))
+       return render_object(@user, status: :created)
     end
 
     # render json: @user.errors, status: :unprocessable_entity
