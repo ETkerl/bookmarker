@@ -9,8 +9,7 @@ class Api::V1::UsersController < Api::V1::BaseController
        return render_object(@user, status: :created)
     end
 
-    # render json: @user.errors, status: :unprocessable_entity
-    render_errors(@user.errors)
+     render_errors(@user.messages.to_json)
   end
 
   private
