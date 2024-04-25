@@ -2,11 +2,13 @@
 
 module Renderer
     def render_object(resource, **options)
-        options[:status] = options.fetch(:status, :ok)
-        options[:root] = options.fetch(:root, :data)
-        options[:meta] = options.fetch(:meta, assign_metadata(resource))
+        root = options.fetch(:root, :data)
+        meta = options.fetch(:meta, assign_metadata(resource))
 
-        render json: resource, root: :data, **options
+        json = { root => resource }
+        json[:meta] = meta if meta.present?
+
+        render json: json, status: options.fetch(:status, :ok)
     end
 
     def render_errors(errors, status = :unprocessable_entity)
