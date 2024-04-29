@@ -35,16 +35,16 @@ gem 'bootsnap', require: false
 # gem "image_processing", "~> 1.2"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
-# gem "rack-cors"
+gem 'rack-cors'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
 
-  #for simulating activerecord instances
+  # for simulating activerecord instances
   gem 'factory_bot_rails', '~> 6.4', '>= 6.4.3'
 
-  #essential gems for testing
+  # essential gems for testing
   gem 'rspec-rails', '~> 6.1', '>= 6.1.2'
 
   # We will also use rubocop as linter/formatter for our project. It will guide us to keep common conventions for the codebase
@@ -64,5 +64,11 @@ end
 # Flexible authentication solution for Rails based on Warden
 gem 'devise', '~> 4.9', '>= 4.9.4'
 
-#Generate JSON in an object-oriented and convention-driven manner
+# Generate JSON in an object-oriented and convention-driven manner
 gem 'active_model_serializers', '~> 0.10.14'
+
+# generate documantation for the end the API
+gem 'swagger-blocks', '~> 3.0'
+
+# Rails engine to introduce OAuth 2 provider functionality
+gem 'doorkeeper', '~> 5.6', '>= 5.6.9'

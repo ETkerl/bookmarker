@@ -72,4 +72,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
+  # pour eviter que les requetes inconnues soit bloquees
+  config.hosts << 'http://localhost:8080'
 end
