@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Users", type: :request do
+RSpec.describe 'Api::V1::Users', type: :request do
   # describe "GET /api/v1/users" do
   #   it "works! (now write some real specs)" do
   #     get api_v1_users_path
@@ -34,6 +34,5 @@ RSpec.describe "Api::V1::Users", type: :request do
       expect(response).to have_http_status(:unprocessable_entity)
       expect(load_body_errors(response)).to eq(expected_error)
     end
-    
   end
 end

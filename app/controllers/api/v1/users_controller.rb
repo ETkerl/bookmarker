@@ -8,7 +8,7 @@ class Api::V1::UsersController < Api::V1::BaseController
             return render_object(@user, status: :created)
         end
 
-        render_errors(@user.messages.to_json)
+        render_errors(@user.errors)
     end
 
     private
@@ -17,3 +17,4 @@ class Api::V1::UsersController < Api::V1::BaseController
         params.require(:user).permit(:email, :password)
     end
 end
+

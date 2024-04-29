@@ -103,6 +103,8 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.1)
+    doorkeeper (5.6.9)
+      railties (>= 5)
     drb (2.2.1)
     erubi (1.12.0)
     factory_bot (6.4.6)
@@ -168,6 +170,8 @@ GEM
       nio4r (~> 2.0)
     racc (1.7.3)
     rack (3.0.10)
+    rack-cors (2.0.2)
+      rack (>= 2.0.0)
     rack-session (2.0.0)
       rack (>= 3.0.0)
     rack-test (2.1.0)
@@ -249,6 +253,7 @@ GEM
     shoulda-matchers (6.2.0)
       activesupport (>= 5.2.0)
     stringio (3.1.0)
+    swagger-blocks (3.0.0)
     thor (1.3.1)
     timeout (0.4.1)
     tzinfo (2.0.6)
@@ -275,13 +280,16 @@ DEPENDENCIES
   bootsnap
   debug
   devise (~> 4.9, >= 4.9.4)
+  doorkeeper (~> 5.6, >= 5.6.9)
   factory_bot_rails (~> 6.4, >= 6.4.3)
   pg (~> 1.1)
   puma (>= 5.0)
+  rack-cors
   rails (~> 7.1.3, >= 7.1.3.2)
   rspec-rails (~> 6.1, >= 6.1.2)
   rubocop (~> 1.63.1)
   shoulda-matchers (~> 6.2)
+  swagger-blocks (~> 3.0)
   tzinfo-data
 
 RUBY VERSION

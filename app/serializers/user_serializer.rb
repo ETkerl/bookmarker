@@ -1,3 +1,3 @@
 class UserSerializer < BaseSerializer
-    attributes :email
+  attributes :email
 end

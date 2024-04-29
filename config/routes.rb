@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # use_doorkeeper
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -14,7 +15,24 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :users, only: [:create, :index]
+      resources :users, only: %i[create index]
+      # use_doorkeeper 
+        # controllers :authorizations, :applications, :authorized_applications
+      # end
     end
   end
+
+  # for swagger ui
+  resources :swagger, only: [:index]
+
+  # for api end point
+  resources :apidocs, only: [:index]
+
+  scope 'api/v1' do
+    use_doorkeeper do
+      skip_controllers :applications, :authorized_applications
+    end
+  end
+  
+  # root to: "doorkeeper/token_info#show"
 end

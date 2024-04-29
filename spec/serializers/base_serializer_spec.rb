@@ -8,7 +8,6 @@ RSpec.describe BaseSerializer, type: :serializer do
 
   subject { serialized_resource }
 
- 
   it 'has an ID that matches with resource ID' do
     # puts(serialized_resource)
     # puts(resource)

@@ -19,3 +19,9 @@ Style/IfUnlessModifier:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'app/controllers/swagger/**/*'
+
+AllCops:
+  Exclude:
+    - 'db/migrate/**/*'
+    - 'db/schema.rb'
